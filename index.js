@@ -21,7 +21,7 @@ app.use(cors(
     
     {
 
-    origin:'https://gentle-biscuit-57ba17.netlify.app/',
+    origin:'https://gentle-biscuit-57ba17.netlify.app',
     methods:["GET","POST","PUT","DELETE"],
     credentials:true,
 }
