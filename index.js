@@ -32,10 +32,6 @@ app.use(express.static('public'))
 
 app.use(cookieParser())
 
-// app.get('/',(req,res)=>{
-//     res.json({msg:'working'})
-// })
-
 //Register New user
 app.post('/register',(req,res)=>{
 
@@ -190,21 +186,6 @@ app.post('/createPost',verifyUser,upload.single('file'),(req,res)=>{
 
 //create Profile 
 
-//storage to store Profile
-
-// const profileStorage = multer.diskStorage({
-//             destination:(req,file,cb)=>{
-//                 cb(null,"public/profile")
-//             },
-//             filename:(req,file,cb)=>{
-//                 cb(null,file.fieldname+'_'+Date.now()+ path.extname(file.originalname))
-//             }
-// })
-
-
-// const uploadProfile = multer({
-//     storage:profileStorage
-// })
 
 app.post('/profile',upload.single('file'),(req,res)=>{
 
