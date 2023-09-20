@@ -87,23 +87,23 @@ app.post('/login',(req,res)=>{
 
 //middle ware to check 
 
-const verifyUser = (req,res,next)=>{
-    const token = req.cookies.token
-    if(!token) {
-        res.json('Token not available')
-    }else{
-        jwt.verify(token,'key',(err,decoded)=>{
-            if(err){
-                res.json('Wrong Token')
-            }else{
-                req.email = decoded.email
-                req.name = decoded.name
-                next()
-            }
-        })
-    }
-}
-app.get('/home',verifyUser,(req,res)=>{
+// const verifyUser = (req,res,next)=>{
+//     const token = req.cookies.token
+//     if(!token) {
+//         res.json('Token not available')
+//     }else{
+//         jwt.verify(token,'key',(err,decoded)=>{
+//             if(err){
+//                 res.json('Wrong Token')
+//             }else{
+//                 req.email = decoded.email
+//                 req.name = decoded.name
+//                 next()
+//             }
+//         })
+//     }
+// }
+app.get('/home',(req,res)=>{
     res.json({email: req.email, name:req.name})
 })
 
